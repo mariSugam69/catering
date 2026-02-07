@@ -15,6 +15,23 @@
   padding: 0;
 }
 
+#blackScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1.2s ease;
+}
+
+#blackScreen.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
 body {
   min-height: 100vh;
   display: flex;
@@ -249,10 +266,11 @@ footer {
 </head>
 
 <body>
-
+<div id="blackScreen"></div>
 <header id="mainHeader" style="text-decoration: u;">🍽 Catering Connect</header>
 
 <main id="mainContent">
+
 
 <!-- CHOICE (NOT REMOVED, ONLY EXTENDED) -->
 <div id="choiceScreen">
@@ -378,13 +396,21 @@ function backToChoice(){
 }
 
 window.onload = () => {
-  setTimeout(() => mainHeader.classList.add("show"), 500);
+
+  setTimeout(() => {
+    document.getElementById("blackScreen").classList.add("hide");
+  }, 800);
+
+  setTimeout(() => mainHeader.classList.add("show"), 1200);
+
   setTimeout(() => {
     document.body.classList.add("loaded");
     mainContent.style.display = "block";
     footer.style.display = "block";
-  }, 1500);
+  }, 1800);
+
 };
+
 function submitEvent() {
 
   if (
