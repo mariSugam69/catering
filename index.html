@@ -203,6 +203,17 @@ main {
   color: #ccc;
   font-size: .9rem;
 }
+  input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: white;
+  color: black;
+}
+
 
 /* BUTTONS (original kept) */
 button {
@@ -398,8 +409,8 @@ footer {
   <option>Kadaba</option>
 </select>
 
-<input type="date" id="eventDate" required placeholder="Enter Date">
-<input type="time" id="eventTime" required placeholder="Enter Time">
+<input type="date" id="eventDate" required >
+<input type="time" id="eventTime" required >
 <input type="number" id="eventWorkers" placeholder="Workers Needed" required min="1">
 <input id="catererName" placeholder="Caterer Name" required>
 <input id="catererContact"placeholder="Contact" required type="tel"pattern="[0-9]{10}"maxlength="10">
@@ -519,5 +530,6 @@ function searchEvents() {
 
 </body>
 </html>
+
 
 
