@@ -8,28 +8,78 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* ---------- MOBILE RESPONSIVE ---------- */
+@media (max-width: 768px) {
+
+  main {
+    width: 95%;
+    padding: 15px;
+    max-height: 85vh;
+  }
+
+  header {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+
+  #welcomeTitle {
+    font-size: 1.5rem;
+  }
+
+  #welcomeSub {
+    font-size: 0.9rem;
+  }
+
+  /* Stack user & organizer cards vertically */
+  .choiceCards {
+    grid-template-columns: 1fr;
+  }
+
+  .choiceCard {
+    padding: 20px;
+  }
+
+  /* Improve inputs for touch */
+  input, select {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  /* Improve button tap size */
+  button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 14px;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+
+  header {
+    font-size: 1.3rem;
+  }
+
+  #welcomeTitle {
+    font-size: 1.3rem;
+  }
+
+  main {
+    border-radius: 15px;
+  }
+
+}
+
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-}
-
-#blackScreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  z-index: 9999;
-  opacity: 1;
-  transition: opacity 1.2s ease;
-}
-
-#blackScreen.hide {
-  opacity: 0;
-  pointer-events: none;
 }
 
 body {
@@ -84,7 +134,7 @@ header.show {
 
 /* MAIN */
 main {
-  width: 80%;
+  width: min(700px, 90%);
   max-width: 700px;
   padding: 20px;
   display: none;
@@ -266,7 +316,6 @@ footer {
 </head>
 
 <body>
-<div id="blackScreen"></div>
 <header id="mainHeader" style="text-decoration: u;">🍽 Catering Connect</header>
 
 <main id="mainContent">
@@ -396,19 +445,10 @@ function backToChoice(){
 }
 
 window.onload = () => {
-
-  setTimeout(() => {
-    document.getElementById("blackScreen").classList.add("hide");
-  }, 800);
-
-  setTimeout(() => mainHeader.classList.add("show"), 1200);
-
-  setTimeout(() => {
-    document.body.classList.add("loaded");
-    mainContent.style.display = "block";
-    footer.style.display = "block";
-  }, 1800);
-
+  mainHeader.classList.add("show");
+  document.body.classList.add("loaded");
+  mainContent.style.display = "block";
+  footer.style.display = "block";
 };
 
 function submitEvent() {
